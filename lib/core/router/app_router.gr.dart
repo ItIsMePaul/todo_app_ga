@@ -97,13 +97,13 @@ class HomeRoute extends PageRouteInfo<void> {
 /// [ViewTaskScreen]
 class ViewTaskRoute extends PageRouteInfo<ViewTaskRouteArgs> {
   ViewTaskRoute({
-    required Task task,
+    required String taskId,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           ViewTaskRoute.name,
           args: ViewTaskRouteArgs(
-            task: task,
+            taskId: taskId,
             key: key,
           ),
           initialChildren: children,
@@ -116,7 +116,7 @@ class ViewTaskRoute extends PageRouteInfo<ViewTaskRouteArgs> {
     builder: (data) {
       final args = data.argsAs<ViewTaskRouteArgs>();
       return ViewTaskScreen(
-        task: args.task,
+        taskId: args.taskId,
         key: args.key,
       );
     },
@@ -125,16 +125,16 @@ class ViewTaskRoute extends PageRouteInfo<ViewTaskRouteArgs> {
 
 class ViewTaskRouteArgs {
   const ViewTaskRouteArgs({
-    required this.task,
+    required this.taskId,
     this.key,
   });
 
-  final Task task;
+  final String taskId;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'ViewTaskRouteArgs{task: $task, key: $key}';
+    return 'ViewTaskRouteArgs{taskId: $taskId, key: $key}';
   }
 }
